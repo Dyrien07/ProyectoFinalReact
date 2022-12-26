@@ -69,12 +69,12 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <Cartwidget/>
-          <span>
-            3
-          </span>
+          <Cartwidget cantidad={3}/>
         </nav>
       </div>
+      <span>
+      
+      </span>
      
     </React.Fragment>
   );
