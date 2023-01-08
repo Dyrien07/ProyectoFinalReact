@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Cartwidget from "../CartWhitget/CartWhitget";
 
 import "./style.css";
@@ -25,12 +26,22 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <a className="nav-link active" aria-current="page" href="/#">
+                <Link to={"/"} className="nav-link active" aria-current="page">
                   Home
-                </a>
-                <a className="nav-link" href="/#">
-                  Features
-                </a>
+                </Link>
+                <Link to={"/category/electronics"} className="nav-link">
+                  Electronica
+                </Link >
+                <Link to={"/category/jewelery"} className="nav-link">
+                  Joyeria
+                </Link >
+                <Link to={"/category/men's clothing"} className="nav-link">
+                  Ropa de Hombre
+                </Link >
+                <Link to={"/category/women's clothing"} className="nav-link">
+                  Ropa de Mujer
+                </Link >
+                
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
