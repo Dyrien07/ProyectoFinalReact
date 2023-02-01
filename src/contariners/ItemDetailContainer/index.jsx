@@ -22,7 +22,9 @@ const ItemDetailContainer
   
   return (
     <React.Fragment>
+      <h2>{detail.category}</h2>
       <div className="list-container">
+      
       <ItemDetail detail={detail} />
       </div>
       

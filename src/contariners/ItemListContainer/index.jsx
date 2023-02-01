@@ -6,16 +6,16 @@ import "./style.css";
 const ItemListContainer = () => {
   const [products, setProductos] = useState([]);
   const { categoryID } = useParams();
-  
- 
+
+
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products").then((response) =>{
+    fetch("https://fakestoreapi.com/products").then((response) => {
       return response.json();
     }).then(products => {
       if (categoryID) {
-        let  productosfiltrados = products.filter( (producto) =>  producto.category === categoryID);
+        let productosfiltrados = products.filter((producto) => producto.category === categoryID);
         setProductos(productosfiltrados);
-      } else 
+      } else
         setProductos(products);
     })
   }, [categoryID]);
