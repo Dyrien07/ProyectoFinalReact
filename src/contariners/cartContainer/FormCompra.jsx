@@ -10,7 +10,8 @@ import { doc, updateDoc } from "firebase/firestore";
 const FormCompra = () => {
     const { productos, totalCompra, limpiarCarrito } = useContext(Shop);
 
-    async function GenerarOrden(data) {
+    async function GenerarOrden(data, event) {
+        
         const order = generatorOrder({
             nombre: data.Nombre,
             email: data.email,
@@ -19,7 +20,6 @@ const FormCompra = () => {
             total: totalCompra(),
         });
         let docRef = await addDoc(collection(db, "Orders"), order);
-        console.log(docRef);
         toast.success(docRef.id);
         for (const ProductosCarrito of productos) {
             const productoRef = doc(db, "Productos", ProductosCarrito.id);

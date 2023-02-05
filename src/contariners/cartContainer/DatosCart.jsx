@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { GoX } from "react-icons/go";
+import { Shop } from '../../context/ShopProvider';
 
 
 const DatosCart = ({producto}) => {
+  const {eliminarProducto} =useContext(Shop)
 
 
    
@@ -14,7 +16,7 @@ const DatosCart = ({producto}) => {
         <td>{producto.title}</td>
         <td>{producto.quantity}</td>
         <td>{producto.price}</td>
-        <td><GoX></GoX></td>
+        <td><GoX onClick={()=>eliminarProducto(producto.id)}></GoX></td>
       </tr>
   )
 }

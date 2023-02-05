@@ -19,6 +19,11 @@ const ShopProvider = ({ children }) => {
         }
    
     };
+    function eliminarProducto(ID){
+        let nuevosProductos = productos.filter(prod => prod.id !== ID);
+        setProductos(nuevosProductos)
+        
+    }
     const totalCompra = ()=>{
         let total = 0;
         for(const producto of productos){
@@ -42,7 +47,7 @@ const ShopProvider = ({ children }) => {
         return productos.some(producto => producto.id === ID);
     };
     const [productos, setProductos] = useState([]);
-    return <Shop.Provider value={{ productos, addProduct , cartCount, limpiarCarrito, totalCompra}}>{children} </Shop.Provider>;
+    return <Shop.Provider value={{ productos, addProduct , cartCount, limpiarCarrito, totalCompra, eliminarProducto}}>{children} </Shop.Provider>;
 };
 
 export default ShopProvider;
