@@ -7,9 +7,12 @@ import FormCompra from "./FormCompra";
 function Cart() {
     const [buyConfirm, setBuyconfirm] = useState(false);
     const { productos} = useContext(Shop);
+    console.log(productos);
     async function confirmarCompra() {
         setBuyconfirm(true);
     }
+
+    
     return (
         <>
             
@@ -33,12 +36,21 @@ function Cart() {
                     })}
                 </tbody>
             </table>
-            <button onClick={confirmarCompra} className="btn btn-primary">
-                Confirmar compra
-            </button>
-            {buyConfirm === true ? (
+          
+            {
+              productos.length ===0 ? <h2>No hay productos en el Carrito </h2>:
+              <button onClick={confirmarCompra} className="btn btn-primary">
+              Confirmar compra
+          </button>}
+            {
+              productos.length === 0 ? null : 
+               buyConfirm === true ? (
                 <FormCompra></FormCompra>
-            ) : null}
+            ) : null
+            }
+             
+           
+           
         </>
     );
 }

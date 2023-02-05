@@ -39,7 +39,7 @@ const {addProduct} = useContext(Shop)
         <p>${detail.price}</p>
         {
           quantity === 0 ? 
-          <ItemCount stock={10}inicial={1} onAdd={onAdd}/> :
+          <ItemCount stock={detail.Stock}inicial={1} onAdd={onAdd}/> :
           <button className="btn btn-warning">
           <Link to="/cart">
             Ir al carrito
